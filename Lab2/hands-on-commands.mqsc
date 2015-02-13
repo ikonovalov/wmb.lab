@@ -1,0 +1,3 @@
+/opt/mqm/bin/runmqsc DEFQM < ~/developer/projects/wmbt_tutorial/Lab2/queues.mqsc
+
+rm -rf /tmp/lab2/*

@@ -1,0 +1,12 @@
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.bar
+local.properties
+.settings/
+.loadpath
+.sqlxeditor_project/
+*.class
