@@ -1,0 +1,5 @@
+# setup queue and process
+/opt/mqm/bin/runmqsc DEFQM < developer/projects/wmbt_tutorial/Triggers/triggered.mqsc
+
+# starts TRM in a background against default initiation queue
+/opt/mqm/bin/runmqtrm -m DEFQM -q SYSTEM.DEFAULT.INITIATION.QUEUE &

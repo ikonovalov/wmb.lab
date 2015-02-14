@@ -1,0 +1,16 @@
+DEFINE QLOCAL (LXFT.LAB55.Q1) +
+       DESCR('Input queue for lab1') +
+       DEFPSIST(YES) +
+	   MAXDEPTH (500) +
+	   INITQ (SYSTEM.DEFAULT.INITIATION.QUEUE) +
+	   PROCESS ('ECHO.BASH') +
+       USAGE (NORMAL) +
+       TRIGGER + 
+       TRIGTYPE (EVERY) +
+       REPLACE;
+       
+DEFINE PROCESS (ECHO.BASH) REPLACE +
+	APPLICID ('/tmp/echo.sh') +
+	USERDATA('uname -a') + 
+	APPLTYPE (UNIX);
+   
