@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lxft:RouteRequest xmlns:lxft="http://luxoft.com/training/wmb"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://luxoft.com/training/wmb routing.xsd ">
+	<lxft:destination>q1</lxft:destination>
+</lxft:RouteRequest>

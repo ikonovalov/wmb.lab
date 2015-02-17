@@ -1,0 +1,12 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+CREATE COMPUTE MODULE RouteToLabel_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET InputLocalEnvironment = OutputLocalEnvironment;
+		SET OutputLocalEnvironment.Destination.RouterList.DestinationData[1].labelName = 'PATH1';
+		SET OutputLocalEnvironment.Destination.RouterList.DestinationData[2].labelName = 'PATH2';
+		RETURN TRUE;
+	END;
+END MODULE;

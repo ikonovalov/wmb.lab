@@ -1,0 +1,10 @@
+BROKER SCHEMA com.luxoft.lab8
+
+CREATE COMPUTE MODULE ComputeToLabel_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		PROPAGATE TO LABEL InputRoot.XMLNSC.lxft:RouteRequest.lxft:destination; 
+		RETURN FALSE;
+	END;
+END MODULE;

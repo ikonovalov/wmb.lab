@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lxft:Request xmlns:lxft="http://luxoft.com/training/wmb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://luxoft.com/training/wmb schema.xsd ">
+  <lxft:action>buy</lxft:action>
+  <lxft:itemCode>100</lxft:itemCode>
+</lxft:Request>

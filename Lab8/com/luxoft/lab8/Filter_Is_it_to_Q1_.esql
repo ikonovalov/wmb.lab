@@ -1,0 +1,9 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+CREATE FILTER MODULE Filter_Is_it_to_Q1_
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		RETURN Root.XMLNSC.lxft:RouteRequest.lxft:destination = 'q1';
+	END;
+END MODULE;

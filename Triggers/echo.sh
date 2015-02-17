@@ -27,3 +27,5 @@ echo ENV_DATA [$ENV_DATA] >> /tmp/trigger.out
 echo USER_DATA [$USER_DATA] >> /tmp/trigger.out
 echo QMGR [$QMGR] >> /tmp/trigger.out
 echo DEPTH [$DEPTH] >> /tmp/trigger.out
+
+echo $QMGR backout alert $QUEUE. $DEPTH >> /tmp/trigger.out

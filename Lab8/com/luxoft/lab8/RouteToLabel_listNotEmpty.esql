@@ -1,0 +1,10 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+CREATE FILTER MODULE RouteToLabel_listNotEmpty
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE routes INTEGER CARDINALITY(LocalEnvironment.Destination.RouterList.DestinationData[]);
+		RETURN routes > 0;
+	END;
+END MODULE;

@@ -1,0 +1,13 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+CREATE COMPUTE MODULE MQOutputDestinationList_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputLocalEnvironment = InputLocalEnvironment;
+		DECLARE ddCount INTEGER CARDINALITY(InputLocalEnvironment.Destination.MQ.DestinationData[]);
+		SET OutputLocalEnvironment.Destination.MQ.DestinationData[ddCount + 1].queueName = 'LXFT.LAB8.COMP.Q1';
+		SET OutputLocalEnvironment.Destination.MQ.DestinationData[ddCount + 2].queueName = 'LXFT.LAB8.COMP.Q2';
+		RETURN TRUE;
+	END;
+END MODULE;

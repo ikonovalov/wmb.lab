@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://luxoft.com/training/wmb" xmlns:lxft="http://luxoft.com/training/wmb" elementFormDefault="qualified">
+    <xsd:element name="RouteRequest" type="lxft:RouteRequestType"></xsd:element>
+    
+    <xsd:complexType name="RouteRequestType">
+    	<xsd:sequence>
+    		<xsd:element name="destination" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

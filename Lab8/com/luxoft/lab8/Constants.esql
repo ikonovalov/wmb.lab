@@ -1,0 +1,4 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+DECLARE lxft NAMESPACE 'http://luxoft.com/training/wmb';

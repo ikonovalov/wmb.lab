@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="com.luxoft.lab7" version="8.0.4.0" xmlns:map="com.luxoft.lab7">
+    <input path="/schema.xsd"/>
+    <output path="/schema.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="TransformByMap_Transform">
+        <input namespace="http://luxoft.com/training/wmb" path="mb:msg(Request,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://luxoft.com/training/wmb" path="mb:msg(Response,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <move>
+            <input path="Request/itemCode"/>
+            <output path="Response/itemCode"/>
+        </move>
+        <assign value="processed">
+            <output path="Response/actionStatus"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

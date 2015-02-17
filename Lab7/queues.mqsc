@@ -1,0 +1,69 @@
+DEFINE QLOCAL (LXFT.LAB7.MAP.BK) +
+       DESCR('Back out queue for LXFT.LAB7.MAP') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB7.MAP) +
+       DESCR('Input queue for lab7') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB7.MAP.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB7.ESQL.BK) +
+       DESCR('Back out queue for LXFT.LAB7.ESQL') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB7.ESQL) +
+       DESCR('Input queue for lab7') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB7.ESQL.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB7.JAVA.BK) +
+       DESCR('Back out queue for LXFT.LAB7.JAVA') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB7.JAVA) +
+       DESCR('Input queue for lab7') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB7.JAVA.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+       
+DEFINE QLOCAL (LXFT.LAB7.OUT) +
+       DESCR('Output queue for lab7') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;

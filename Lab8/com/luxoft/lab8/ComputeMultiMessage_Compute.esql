@@ -1,0 +1,19 @@
+BROKER SCHEMA com.luxoft.lab8
+
+
+CREATE COMPUTE MODULE ComputeMultiMessage_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		PROPAGATE;
+
+		SET OutputRoot = InputRoot;
+		PROPAGATE TO TERMINAL 'out' DELETE NONE;
+		PROPAGATE TO TERMINAL 1;
+
+		SET OutputRoot = InputRoot;
+		PROPAGATE TO LABEL 'Q2_LABLE';
+
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -1,0 +1,186 @@
+**** for ComputeToTerminal
+
+DEFINE QLOCAL (LXFT.LAB8.COMP.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.COMP.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.COMP.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+       
+**** for CopmuteToLabel flow       
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP2.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.COMP2.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP2.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.COMP2.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+**** for CopmuteMultipleMessages flow       
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP3.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.COMP3.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP3.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.COMP3.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+**** for JavaToTerminal flow       
+       
+DEFINE QLOCAL (LXFT.LAB8.JAVA.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.JAVA.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.JAVA.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.JAVA.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+**** for JavaToLabel flow       
+       
+DEFINE QLOCAL (LXFT.LAB8.JAVA2.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.JAVA2.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.JAVA2.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.JAVA2.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+**** for Filter flow
+       
+DEFINE QLOCAL (LXFT.LAB8.FILTER.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.FILTER.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.FILTER.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.FILTER.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;       
+       
+**** for RouteToLabel flow
+       
+DEFINE QLOCAL (LXFT.LAB8.RLABEL.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.RLABEL.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.RLABEL.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.RLABEL.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE; 
+       
+**** for MQOutputDestinationList flow
+       
+DEFINE QLOCAL (LXFT.LAB8.MQDD.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB8.MQDD.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.MQDD.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB8.MQDD.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE; 
+
+**** general purpose queues
+
+DEFINE QLOCAL (LXFT.LAB8.COMP.Q1) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB8.COMP.Q2) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;

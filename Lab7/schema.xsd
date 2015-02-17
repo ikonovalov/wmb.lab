@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://luxoft.com/training/wmb" xmlns:lxft="http://luxoft.com/training/wmb">
+    <xsd:element name="Request" type="lxft:RequestType"></xsd:element>
+
+    <xsd:complexType name="RequestType">
+    	<xsd:sequence>
+    		<xsd:element name="action">
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:string">
+    					<xsd:enumeration value="buy"></xsd:enumeration>
+    					<xsd:enumeration value="sell"></xsd:enumeration>
+    				</xsd:restriction>
+    			</xsd:simpleType>
+    		</xsd:element>
+    		<xsd:element name="itemCode" type="xsd:int"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="Response" type="lxft:ResponseType"></xsd:element>
+    
+    <xsd:complexType name="ResponseType">
+    	<xsd:sequence>
+    		<xsd:element name="itemCode" type="xsd:int"></xsd:element>
+    		<xsd:element name="actionStatus" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

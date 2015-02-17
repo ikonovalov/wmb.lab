@@ -1,0 +1,14 @@
+BROKER SCHEMA com.luxoft.lab3
+
+
+CREATE COMPUTE MODULE RequestReply_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
