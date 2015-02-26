@@ -12,8 +12,6 @@ public class TransformByJava_Transform extends MbJavaComputeNode {
 
 	public void evaluate(MbMessageAssembly inAssembly) throws MbException {
 		MbOutputTerminal out = getOutputTerminal("out");
-		MbOutputTerminal alt = getOutputTerminal("alternate");
-
 		MbMessage inMessage = inAssembly.getMessage();
 
 		// create new empty message

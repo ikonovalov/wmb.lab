@@ -1,0 +1,88 @@
+**** for Sample1
+
+DEFINE QLOCAL (LXFT.LAB9.SAMP1.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB9.SAMP1.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SAMP1.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB9.SAMP1.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SAMP1.OUT) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+**** for Sample2
+
+DEFINE QLOCAL (LXFT.LAB9.SAMP2.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB9.SAMP2.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SAMP2.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB9.SAMP2.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SAMP2.OUT) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+       
+**** Select function
+
+DEFINE QLOCAL (LXFT.LAB9.SEL.IN.BK) +
+       DESCR('Back out queue for LXFT.LAB9.SEL.IN') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SEL.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB9.SEL.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB9.SEL.OUT) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+   

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Training xmlns="http://luxoft.com/omsk">
+	<src>Moscow</src>
+	<dst>Omsk</dst>
+	<what>IBM</what>
+	<somewhat>
+		<fieldA>A</fieldA>
+		<fieldB>B</fieldB>
+		<fieldC>C</fieldC>
+	</somewhat>
+</Training>

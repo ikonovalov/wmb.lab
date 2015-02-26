@@ -1,0 +1,90 @@
+BROKER SCHEMA com.luxoft.lab9
+
+
+CREATE COMPUTE MODULE Sample2_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		
+		DECLARE tree ROW ROW('A' AS fieldA,
+							 'B' AS fieldB,
+							 'C' AS fieldC
+							);
+		
+		SET OutputRoot.XMLNSC.Training = ROW('Moscow' AS src,
+	                       'Omsk' AS dst,
+	                       'IBM' AS what,
+	                       tree AS somewhat); 
+	                       
+	    DECLARE myRef REFERENCE TO OutputRoot.XMLNSC.Training.somewhat;
+	    DECLARE fn CHARACTER FIELDNAME(myRef);
+		MOVE myRef PARENT;
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef NEXTSIBLING;
+		SET fn = FIELDNAME(myRef);
+		DECLARE isSuc BOOLEAN LASTMOVE(myRef);
+		
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef PREVIOUSSIBLING;
+		SET fn = FIELDNAME(myRef);
+		
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef FIRSTCHILD; 
+		SET fn = FIELDNAME(myRef);
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef LASTCHILD; 
+		SET fn = FIELDNAME(myRef);
+		
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef LASTCHILD TYPE XMLNSC.Field NAME 'fieldB';
+		SET fn = FIELDNAME(myRef);
+		
+		
+		MOVE myRef TO OutputRoot.XMLNSC.Training.somewhat;
+		MOVE myRef LASTCHILD TYPE XMLNSC.Element NAME 'fieldB';
+		SET fn = FIELDNAME(myRef);
+		
+		DECLARE mqmd REFERENCE TO InputRoot.*[2];
+		
+		DELETE FIELD OutputRoot.XMLNSC.Training.somewhat.fieldB;
+		SET OutputRoot.XMLNSC.Training.somewhat.fieldA = NULL;
+		
+		DECLARE cutAndPastRef REFERENCE TO OutputRoot.XMLNSC.Training.somewhat;
+		DETACH cutAndPastRef;
+		ATTACH cutAndPastRef TO OutputRoot.XMLNSC.Training.src AS NEXTSIBLING; 
+		
+		DECLARE tz INTERVAL LOCAL_TIMEZONE;
+		
+		/*
+		DECLARE myRef2 REFERENCE TO OutputRoot.XMLNSC.Training.somewhat;
+		DECLARE i INTEGER CARDINALITY(myRef2.*[]); 	-- => 3
+		SET myRef2.fieldA = 'ZZ';					-- fieldA = ZZ
+		SET myRef2.{'field' || 'B'} = 'YY';			-- fieldB = YY
+		SET myRef2.(XMLNSC.Attribute)options = i; 
+		
+		DECLARE lxft_ns NAMESPACE 'http://luxoft.com/omsk';
+		-- declare ns with specific preffix
+		SET OutputRoot.XMLNSC.Training.(XMLNSC.NamespaceDecl)xmlns:lxft = lxft_ns;
+		SET OutputRoot.XMLNSC.Training.somewhat.lxft_ns:nsaware = 'yes'; -- append fiels with ns
+		*/
+		
+		
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+END MODULE;

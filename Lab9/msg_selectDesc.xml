@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Training xmlns="http://luxoft.com/omsk">
+	<src>Moscow</src>
+	<dst>Omsk</dst>
+	<what>WebSphere MQ</what>
+	<themes>
+		<theme>
+			<id>3</id>
+		</theme>
+		<theme>
+			<id>8</id>
+		</theme>
+	</themes>
+</Training>

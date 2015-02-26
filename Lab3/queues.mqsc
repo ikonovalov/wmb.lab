@@ -26,3 +26,65 @@ DEFINE QLOCAL (LXFT.LAB3.Q2) +
        MAXDEPTH (500) +
        USAGE (NORMAL) +
        REPLACE;
+
+********************
+*** Publish/subscribe
+
+DEFINE TOPIC(LXFT.LAB3.TOPIC) +                  
+		TYPE(LOCAL) +
+   		TOPICSTR(LXFT/LAB3) +                     
+   		DESCR('Topic for LAB3') +          
+   		REPLACE;                           
+
+
+
+DEFINE QLOCAL (LXFT.LAB3.PUB.BK) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+       
+DEFINE QLOCAL (LXFT.LAB3.PUB) +
+       DESCR('Input queue for LAB3 pub') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB3.PUB.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
+       
+DEFINE QLOCAL (LXFT.LAB3.SUB1.Q) +
+       DEFPSIST(NO) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE SUB(LXFT.LAB3.SUBSCR1) +
+	   TOPICSTR('LXFT/LAB3') +                            
+   	   DEST(LXFT.LAB3.SUB1.Q) +
+   	   EXPIRY(UNLIMITED) +                       
+   	   SUBLEVEL(1) +
+	   REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB3.SUB2.Q) +
+       DEFPSIST(NO) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+
+DEFINE SUB(LXFT.LAB3.SUBSCR2) +
+	   TOPICSTR('LXFT/#') +                            
+   	   DEST(LXFT.LAB3.SUB2.Q) +
+   	   EXPIRY(UNLIMITED) +                       
+   	   SUBLEVEL(1) +
+	   REPLACE;

@@ -1,0 +1,41 @@
+BROKER SCHEMA com.luxoft.lab9
+
+DECLARE lxft_ns NAMESPACE 'http://luxoft.com/omsk';
+
+CREATE COMPUTE MODULE SelectFunc_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		DELETE FIELD OutputRoot.XMLNSC.lxft_ns:Training.lxft_ns:somewhat;
+		DELETE FIELD OutputRoot.XMLNSC.lxft_ns:Training.lxft_ns:themes;
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.lxft_ns:Training IDENTITY lxft_ns:themes;
+		DECLARE themesRef REFERENCE TO OutputRoot.XMLNSC.lxft_ns:Training.lxft_ns:themes;
+		
+		SET themesRef.lxft_ns:theme[] = 
+			SELECT 
+				req.lxft_ns:id,
+				tab.day as lxft_ns:"day",
+				tab.description AS lxft_ns:description  
+			FROM 
+				InputRoot.XMLNSC.lxft_ns:Training.lxft_ns:themes.lxft_ns:theme[] as req, Database.lxft_omsk.{'themes'} AS tab
+			WHERE 
+				CAST(req.lxft_ns:id AS INT) = tab.id;
+		
+		/*SET themesRef.lxft_ns:theme[] = 
+			SELECT 
+				t.id AS lxft_ns:id, 
+				t.day as lxft_ns:{'day'}, 
+				t.description AS lxft_ns:description 
+			FROM 
+				Database.lxft_omsk.{'themes'} AS t
+			WHERE 
+				t.description = OutputRoot.XMLNSC.lxft_ns:Training.lxft_ns:what; */
+				
+		/*SET themesRef.lxft_ns:theme[]
+			= SELECT 
+				t.id AS lxft_ns:id, t.day as lxft_ns:{'day'}, t.description AS lxft_ns:description 
+				FROM 
+				Database.lxft_omsk.{'themes'} AS t;*/
+		RETURN TRUE;
+	END;
+END MODULE;
