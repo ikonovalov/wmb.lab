@@ -13,6 +13,8 @@
 	</xsd:complexType>
 	<xsd:complexType name="TrainingType">
 		<xsd:sequence>
+			<xsd:element name="seq" type="xsd:integer"/>
+			<xsd:element name="fin" type="xsd:boolean"/>
 			<xsd:element name="src" type="xsd:string" />
 			<xsd:element name="dst" type="xsd:string" />
 			<xsd:element name="what" type="xsd:string" />

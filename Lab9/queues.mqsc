@@ -19,6 +19,16 @@ DEFINE QLOCAL (LXFT.LAB9.SAMP1.IN) +
        BOTHRESH(1) +
        REPLACE;
        
+DEFINE QLOCAL (LXFT.LAB9.SEL.IN2) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB9.SAMP1.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;
+       
 DEFINE QLOCAL (LXFT.LAB9.SAMP1.OUT) +
        DEFPSIST(YES) +
        PUT (ENABLED) +
