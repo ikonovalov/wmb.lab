@@ -1,0 +1,24 @@
+
+
+Importing file: /home/ikonovalov/developer/projects/wmbt_tutorial/Lab11/NewWSDLFile.wsdl
+
+
+The following is a list of WS-I warning messages found when importing:
+XSD: The location 'MyService.xsd' has not been resolved because the import is unused, Line: 8, Column: 4
+
+
+The WSDL import will proceed with bindings NewWSDLFileSOAP.
+Creating wsdl schema document for file:///home/ikonovalov/developer/projects/wmbt_tutorial/Lab11/NewWSDLFile.wsdl.
+Parsing wsdl binding {http://www.example.org/NewWSDLFile/}NewWSDLFileSOAP.
+Populating WSDL schema NewWSDLFile.xsd.
+Creating file NewWSDLFile.xsd in the workspace.
+Creating file /Lab11/Lab11/MyService.xsd in the workspace.
+Copying source WSDL NewWSDLFile.wsdl to NewWSDLFile.wsdl.
+
+Elapsed time processing this message definition file: 0.1 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

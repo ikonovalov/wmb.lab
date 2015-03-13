@@ -1,0 +1,22 @@
+
+
+Importing file: /home/ikonovalov/developer/projects/wmbt_tutorial/Lab12/TCS.wsdl
+
+The WSDL import will proceed with bindings TCSSOAP.
+Creating wsdl schema document for file:///home/ikonovalov/developer/projects/wmbt_tutorial/Lab12/TCS.wsdl.
+Parsing wsdl binding {http://tincoff.ru/credits}TCSSOAP.
+Parsing wsdl binding input getCredit.
+Parsing wsdl binding output getCredit.
+Processing doc style for operation getCredit.
+Populating WSDL schema TCS.xsd.
+Creating file TCS.xsd in the workspace.
+Creating file /Lab12/Lab12/fanoutmessages.xsd in the workspace.
+Copying source WSDL TCS.wsdl to TCS.wsdl.
+
+Elapsed time processing this message definition file: 0.176 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

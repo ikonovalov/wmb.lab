@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_com_luxoft_currency_ConversionRate_currencyconvertor_CurrencyFlow.subflow="gen/com/luxoft/currency/ConversionRate_currencyconvertor_CurrencyFlow.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="com/luxoft/currency/CurrencyFlow.msgflow"
+    nsPrefix="com_luxoft_currency_CurrencyFlow.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="CurrencyFlow" bundleName="com/luxoft/currency/CurrencyFlow" pluginId="Lab11"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Lab11/icons/full/obj16/CurrencyFlow.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Lab11/icons/full/obj30/CurrencyFlow.gif"/>
+    <composition>
+      <nodes xmi:type="gen_com_luxoft_currency_ConversionRate_currencyconvertor_CurrencyFlow.subflow:FCMComposite_1" xmi:id="FCMComposite_1_1" location="239,235">
+        <translation xmi:type="utility:ConstantString" string="ConversionRate_currencyconvertor"/>
+        <shortDescription xmi:type="utility:ConstantString" string="Invokes WSDL operation and extracts the response from SOAP message."/>
+        <longDescription xmi:type="utility:ConstantString" string="This subflow invokes the WSDL operation and extracts message body from the response message."/>
+      </nodes>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,40 @@
+/*Sample program for use with IBM Integration Bus
+© Copyright International Business Machines Corporation 2007, 2010
+Licensed Materials - Property of IBM*/
+
+
+DECLARE ns NAMESPACE 'http://www.acmeOrders.com/OrderService';
+
+CREATE COMPUTE MODULE WebServicesAsyncClientFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE inMsg REFERENCE TO InputRoot.XMLNSC.OrderMessage.localElement;
+		SET OutputRoot.SOAP.Body.ns:submitPORequest.partNo = inMsg.PartNumber;
+		DECLARE outMsg REFERENCE TO OutputRoot.SOAP.Body.ns:submitPORequest;
+		SET outMsg.partQuantity = inMsg.Quantity;
+		SET outMsg.personName.firstName = inMsg.FirstName;
+		SET outMsg.personName.lastName = inMsg.LastName;
+		SET outMsg.address.street = inMsg.Street;
+		SET outMsg.address.city = inMsg.City;
+		SET outMsg.address.zipCode = inMsg.ZipCode;
+		
+		RETURN TRUE;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE WebServicesAsyncClientFlow_Format
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties.MessageSet   = 'SampleDriverMessages';
+		SET OutputRoot.Properties.MessageType  = 'OrderResponse'; 
+		
+		DECLARE inMsg REFERENCE TO InputRoot.SOAP.Body.ns:submitPOResponse;
+		SET OutputRoot.XMLNSC.OrderResponse.PartNo = inMsg.partNo;
+		DECLARE respMsg REFERENCE TO OutputRoot.XMLNSC.OrderResponse;
+		SET respMsg.PartQuantity = inMsg.partQuantity;
+		SET respMsg.AMT = inMsg.orderAmt;
+		SET respMsg.Status = inMsg.orderStatus;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

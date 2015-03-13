@@ -1,0 +1,4 @@
+
+
+Importing file: /home/ikonovalov/developer/projects/wmbt_tutorial/Lab11/MyService.wsdl
+

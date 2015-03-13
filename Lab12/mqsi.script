@@ -1,0 +1,9 @@
+# starts monitoring in a specific app
+mqsichangeflowmonitoring DEFBRK -e default -k Lab12 -j -c active
+
+mqsichangeflowmonitoring DEFBRK -e default -k Lab12 -f com.luxoft.omsk.FanOutCredit -c active
+
+
+# disable all in EG
+mqsichangeflowmonitoring DEFBRK -e default -j -c inactive
+ 

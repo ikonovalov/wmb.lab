@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="com.luxoft.omsk" version="8.0.4.0" xmlns:map="com.luxoft.omsk">
+    <input path="/MyService_InlineSchema1.xsd"/>
+    <output path="/MyService_InlineSchema1.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="SimpleService_MappingQuery">
+        <input namespace="http://luxoft.com/omsk" path="mb:msg(query,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://luxoft.com/omsk" path="mb:msg(queryResponse,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <move>
+            <input path="query/myString"/>
+            <output path="queryResponse/out"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

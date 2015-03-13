@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1426075656134-449" eventTrace="/1" clientID="1426075656134-449">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default">
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/ForTests.msgflow" iD="1426075699077-454"/>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/TCSWebService.msgflow" iD="1426075699077-455"/>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/LoopBackCreditService.msgflow" iD="1426075699077-456"/>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanInCredit.msgflow" iD="1426075699077-457"/>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanOutCredit.msgflow" iD="1426075699077-458"/>
+      <testModules xsi:type="model2:TestAppOrLib" name="Lab12" iD="1426075699077-459"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1426075656134-452" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1426075656134-450" children="/2"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426075656134-453" timestamp="1426075656134" msgFlow="/Lab12/com/luxoft/omsk/FanInCredit.msgflow" nodeId="FCMComposite_1_7" testScopeID="default" nodeName="MQ Response Q" nodeType="ComIbmMQInput.msgnode">
+    <request xsi:type="model2:TestMessage" iD="1426075699105-460" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue=""/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+</xmi:XMI>

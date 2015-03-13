@@ -1,0 +1,56 @@
+BROKER SCHEMA com.luxoft.lab10
+
+DECLARE lxft_ns NAMESPACE 'http://luxoft.com/omsk';
+
+CREATE DATABASE MODULE DBNode_Database
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE themeRef REFERENCE TO Root.XMLNSC.lxft_ns:Training.lxft_ns:themes.lxft_ns:theme[1];
+		WHILE (LASTMOVE(themeRef)) DO
+			
+			DECLARE mqmd INTEGER CARDINALITY(Root.MQMD[]);
+			
+			SET LocalEnvironment.Variables.checkRes.rec[] = PASSTHRU(
+								'select exists(select 1 from themes where id=?) as excheck'
+									-- TO Database.MYSQL_OMSK
+									VALUES (themeRef.lxft_ns:id)
+								);
+			
+			DECLARE exists BOOLEAN LocalEnvironment.Variables.checkRes.rec[>].excheck <> 0;
+			
+								
+			/*DECLARE exists BOOLEAN 0 < SELECT 
+											COUNT(1) 
+										FROM 
+											Database.lxft_omsk.{'themes'} AS tab
+										WHERE
+											tab.id = themeRef.lxft_ns:id;*/
+			DECLARE table CHAR 'themes';
+			IF (NOT exists) THEN
+				INSERT INTO Database.lxft_omsk.{table} (id, day, description) VALUES (themeRef.lxft_ns:id, themeRef.lxft_ns:day, themeRef.lxft_ns:description);
+			ELSE 
+				-- update if needed
+				DECLARE dbData ROW THE( SELECT 
+											tab.id AS lxft_ns:id, 
+											tab."day" AS lxft_ns:"day", 
+											tab.description AS lxft_ns:description
+										FROM 
+											Database.lxft_omsk.{'themes'} AS tab
+										WHERE
+											tab.id = themeRef.lxft_ns:id);
+								
+				DECLARE updateNeeded BOOLEAN (themeRef <> dbData) ;
+				IF (updateNeeded) THEN
+					UPDATE Database.lxft_omsk.{'themes'} AS t 
+						SET "day" = themeRef.lxft_ns:day, description = themeRef.lxft_ns:description 
+						WHERE t.id = themeRef.lxft_ns:id;
+				END IF;								
+			END IF;
+			
+			MOVE themeRef NEXTSIBLING;
+		END WHILE;			
+		RETURN TRUE;
+	END;
+
+END MODULE;

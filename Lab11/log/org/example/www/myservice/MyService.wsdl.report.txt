@@ -1,0 +1,22 @@
+
+
+Importing file: /home/ikonovalov/developer/projects/wmbt_tutorial/Lab11/MyService.wsdl
+
+The WSDL import will proceed with bindings MyServiceSOAP.
+Creating wsdl schema document for file:///home/ikonovalov/developer/projects/wmbt_tutorial/Lab11/MyService.wsdl.
+Parsing wsdl binding {http://www.example.org/MyService/}MyServiceSOAP.
+Parsing wsdl binding input query.
+Parsing wsdl binding output query.
+Processing doc style for operation query.
+Populating WSDL schema MyService.xsd.
+Creating file MyService.xsd in the workspace.
+Creating file MyService_InlineSchema1.xsd in the workspace.
+Copying source WSDL MyService.wsdl to MyService.wsdl.
+
+Elapsed time processing this message definition file: 0.133 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

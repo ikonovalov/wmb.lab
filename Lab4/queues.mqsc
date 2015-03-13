@@ -1,0 +1,9 @@
+**** for Sample1
+
+DEFINE QLOCAL (LXFT.LAB4.TRACE.IN) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB4.TRACE.OUT) +
+       USAGE (NORMAL) +
+       REPLACE;

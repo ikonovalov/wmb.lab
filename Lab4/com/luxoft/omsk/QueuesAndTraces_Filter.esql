@@ -1,0 +1,11 @@
+BROKER SCHEMA com.luxoft.omsk
+
+
+CREATE FILTER MODULE QueuesAndTraces_Filter
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- FIELDNAME(Root.HTTPInputHeader) IS NOT NULL
+		RETURN EXISTS(Root.HTTPInputHeader[]);
+	END;
+
+END MODULE;

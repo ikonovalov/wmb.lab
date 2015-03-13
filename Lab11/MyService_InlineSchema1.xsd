@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://luxoft.com/omsk" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://luxoft.com/omsk"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<xsd:element ibmSchExtn:docRoot="true" name="query">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="myString" type="xsd:string" />
+				<xsd:element name="myInt" type="xsd:int" />
+				<xsd:element name="myDate" type="xsd:dateTime" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element ibmSchExtn:docRoot="true" name="queryResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="in" type="xsd:string" />
+	<xsd:element name="out" type="xsd:string" />
+	<xsd:element name="simpleOperation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="in" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="simpleOperationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

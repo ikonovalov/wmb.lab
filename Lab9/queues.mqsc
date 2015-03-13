@@ -86,3 +86,9 @@ DEFINE QLOCAL (LXFT.LAB9.SEL.OUT) +
        USAGE (NORMAL) +
        REPLACE;
    
+**** UDP ***
+DEFINE QLOCAL (LXFT.LAB9.UDP.IN) +
+       DEFPSIST(NO) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1426076144584-1173" eventTrace="/1" clientID="1426076144584-1173">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <properties name="CCSID" stringValue="1208"/>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/ForTests.msgflow" iD="1426076144586-1177">
+        <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076870383-138" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+          <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+        </monitors>
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="HTTP Input" urlSpecifier="/test"/>
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.TEST1" queue="LXFT.LAB12.TEST1"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/TCSWebService.msgflow" iD="1426076144586-1178">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="SOAP Input" urlSpecifier="/tcs/credit"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/LoopBackCreditService.msgflow" iD="1426076144586-1179">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.LOOP" queue="LXFT.LAB12.LOOP"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanInCredit.msgflow" iD="1426076144586-1180">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="MQ Response Q" queue="LXFT.LAB12.FANIN"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanOutCredit.msgflow" iD="1426076144586-1181">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.IN" queue="LXFT.LAB12.IN"/>
+      </testModules>
+      <testModules xsi:type="model2:TestAppOrLib" name="Lab12" iD="1426076144586-1182"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="Integration Bus v9.0" runtimeInstance="localhost^DEFBRK^default^0"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1426076144586-1176" headerName="Default Header">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </messageHeaders>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1426076144586-1174" children="/2 /9 /16 /17 /24 /26"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076144586-1183" readOnly="true" clientID="1426076144584-1173" timestamp="1426076144587" children="/3 /4 /8" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076152010-1187">
+    <request xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076144586-1176" headerName="Default Header">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076152010-1185" parentID="1426076144586-1183" timestamp="1426076152010" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076152672-1207" readOnly="true" clientID="1426076144584-1173" parentID="1426076144586-1183" timestamp="1426076152672" invokeCommandId="1426076152672-1204" children="/5 /6 /7"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076152681-1209" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1" readOnly="true" clientID="1426076144584-1173" parentID="1426076152672-1207" timestamp="1426076152681" invokeCommandId="1426076152672-1205">
+    <message xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076152682-1211" encoding="273" format="        " putDateTime="Wed Mar 11 19:15:52 NOVT 2015" replyToQueueManagerName="                                                " replyToQueueName="                                                " msgId="AMQ+DEFQM+++++++%EF%BF%BD%EF%BF%BD%EF%BF%BDT%06%EF%BF%BD%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+  <mq:MQQueueMonitorEvent name="MQ Queue Monitor &quot;LXFT.LAB12.TEST2&quot;" iD="1426076154680-1213" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" readOnly="true" clientID="1426076144584-1173" parentID="1426076152672-1207" timestamp="1426076154680" invokeCommandId="1426076152672-1205">
+    <message xsi:type="model2:TestMessage" iD="1426076154680-1214">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076154682-1215" applicationIdData="                                " applicationOriginData="    " characterSet="1208" encoding="273" format="        " persistence="1" priority="0" putApplicationName="                            " putDateTime="Wed Mar 11 19:15:52 NOVT 2015" replyToQueueManagerName="DEFQM                                           " replyToQueueName="                                                " userId="            " msgId="AMQ+DEFQM+++++++%EF%BF%BD%EF%BF%BD%EF%BF%BDT%06%EF%BF%BD%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQQueueMonitorEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076152675-1208" clientID="1426076144584-1173" parentID="1426076152672-1207" timestamp="1426076152675">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076152034-1188" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076154682-1217" readOnly="true" clientID="1426076144584-1173" parentID="1426076144586-1183" timestamp="1426076154682" invokeCommandId="1426076152672-1205"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076202437-1227" readOnly="true" clientID="1426076144584-1173" timestamp="1426076202437" children="/10 /11 /15" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076152010-1187">
+    <request xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076144586-1176" headerName="Default Header">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076202508-1230" parentID="1426076202437-1227" timestamp="1426076202508" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076202568-1251" readOnly="true" clientID="1426076144584-1173" parentID="1426076202437-1227" timestamp="1426076202568" invokeCommandId="1426076202568-1247" children="/12 /13 /14"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076202574-1254" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1" readOnly="true" clientID="1426076144584-1173" parentID="1426076202568-1251" timestamp="1426076202574" invokeCommandId="1426076202568-1248">
+    <message xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076202574-1257" encoding="273" format="        " putDateTime="Wed Mar 11 19:16:42 NOVT 2015" replyToQueueManagerName="                                                " replyToQueueName="                                                " msgId="AMQ+DEFQM+++++++%EF%BF%BD%EF%BF%BD%EF%BF%BDT%03%EF%BF%BD%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+  <mq:MQQueueMonitorEvent name="MQ Queue Monitor &quot;LXFT.LAB12.TEST2&quot;" iD="1426076204572-1259" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" readOnly="true" clientID="1426076144584-1173" parentID="1426076202568-1251" timestamp="1426076204572" invokeCommandId="1426076202568-1248">
+    <message xsi:type="model2:TestMessage" iD="1426076204572-1260">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076204572-1261" applicationIdData="                                " applicationOriginData="    " characterSet="1208" encoding="273" format="        " persistence="1" priority="0" putApplicationName="                            " putDateTime="Wed Mar 11 19:16:42 NOVT 2015" replyToQueueManagerName="DEFQM                                           " replyToQueueName="                                                " userId="            " msgId="AMQ+DEFQM+++++++%EF%BF%BD%EF%BF%BD%EF%BF%BDT%03%EF%BF%BD%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQQueueMonitorEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076202570-1253" clientID="1426076144584-1173" parentID="1426076202568-1251" timestamp="1426076202570">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076202533-1231" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076204573-1262" readOnly="true" clientID="1426076144584-1173" parentID="1426076202437-1227" timestamp="1426076204573" invokeCommandId="1426076202568-1248"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076532051-1367" timestamp="1426076532051" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode">
+    <request xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076144586-1176" headerName="Default Header"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076870232-132" readOnly="true" clientID="1426076144584-1173" timestamp="1426076870232" children="/18 /19 /23" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076870359-137">
+    <request xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076144586-1176" headerName="Default Header">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076870359-135" parentID="1426076870232-132" timestamp="1426076870359" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076871003-158" readOnly="true" clientID="1426076144584-1173" parentID="1426076870232-132" timestamp="1426076871003" invokeCommandId="1426076871002-154" children="/20 /21 /22"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076871010-160" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1" readOnly="true" clientID="1426076144584-1173" parentID="1426076871003-158" timestamp="1426076871010" invokeCommandId="1426076871002-155">
+    <message xsi:type="model2:TestMessage" iD="1426076144851-1184" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076871010-163" encoding="273" format="        " putDateTime="Wed Mar 11 19:27:51 NOVT 2015" replyToQueueManagerName="                                                " replyToQueueName="                                                " msgId="AMQ+DEFQM+++++++%EF%BF%BD4%00U%05A%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+  <mq:MQQueueMonitorEvent name="MQ Queue Monitor &quot;LXFT.LAB12.TEST2&quot;" iD="1426076873008-165" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" readOnly="true" clientID="1426076144584-1173" parentID="1426076871003-158" timestamp="1426076873008" invokeCommandId="1426076871002-155">
+    <message xsi:type="model2:TestMessage" iD="1426076873008-166">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="xxcvxc"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076873011-167" applicationIdData="                                " applicationOriginData="    " characterSet="1208" encoding="273" format="        " persistence="1" priority="0" putApplicationName="                            " putDateTime="Wed Mar 11 19:27:51 NOVT 2015" replyToQueueManagerName="DEFQM                                           " replyToQueueName="                                                " userId="            " msgId="AMQ+DEFQM+++++++%EF%BF%BD4%00U%05A%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQQueueMonitorEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076871005-159" clientID="1426076144584-1173" parentID="1426076871003-158" timestamp="1426076871005">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076870383-138" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076873012-169" readOnly="true" clientID="1426076144584-1173" parentID="1426076870232-132" timestamp="1426076873013" invokeCommandId="1426076871002-155"/>
+  <mq:InteractiveMQEnqueueEvent iD="1426076921461-175" timestamp="1426076921461" children="/25" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1">
+    <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    <request xsi:type="model2:TestMessage" iD="1426076921461-176" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="aaa"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076941853-177" readOnly="true" clientID="1426076144584-1173" parentID="1426076921461-175" timestamp="1426076941853" exceptionText="Cannot communicate with queue manager DEFQM.  An unexpected exception occurred while attempting to communicate with the queue manager.&#xA;&#xA;Check the name/status of the queue manager and try again." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2035'." host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <mq:InteractiveMQEnqueueEvent iD="1426076968911-178" timestamp="1426076968911" children="/27" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1">
+    <properties name="SERVER_CHANNEL" stringValue="JVM.DEF.SVRCONN"/>
+    <request xsi:type="model2:TestMessage" iD="1426076921461-176" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="aaa"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:MQInformationEvent name="Message sent to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076984980-180" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1" readOnly="true" clientID="1426076144584-1173" parentID="1426076968911-178" timestamp="1426076984980">
+    <message xsi:type="model2:TestMessage" iD="1426076921461-176" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="aaa"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426076984980-182" characterSet="819" encoding="273" format="        " putDateTime="Wed Mar 11 19:29:44 NOVT 2015" msgId="AMQ+DEFQM+++++++%EF%BF%BD4%00U%09A%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+</xmi:XMI>

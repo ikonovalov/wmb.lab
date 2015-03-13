@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.3.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore" xmlns:SQLSchema="http:///org/eclipse/datatools/modelbase/sql/schema.ecore" xmlns:SQLTables="http:///org/eclipse/datatools/modelbase/sql/tables.ecore">
+  <SQLSchema:Database xmi:id="_GfG8Ecc-EeScbbCwdphjQg" name="lxft_omsk" vendor="MySql" version="5.1" schemas="_GiiDgMc-EeScbbCwdphjQg">
+    <eAnnotations xmi:id="_GfG8Esc-EeScbbCwdphjQg" source="ConnectionURI">
+      <details xmi:id="_GfHjIMc-EeScbbCwdphjQg" key="ConnectionKey" value="lxft_omsk"/>
+    </eAnnotations>
+  </SQLSchema:Database>
+  <SQLSchema:Schema xmi:id="_GiiDgMc-EeScbbCwdphjQg" name="lxft_omsk" indices="_GiiDgcc-EeScbbCwdphjQg" tables="_GiiqkMc-EeScbbCwdphjQg" database="_GfG8Ecc-EeScbbCwdphjQg"/>
+  <SQLConstraints:Index xmi:id="_GiiDgcc-EeScbbCwdphjQg" name="unique_id" Schema="_GiiDgMc-EeScbbCwdphjQg" unique="true" table="_GiiqkMc-EeScbbCwdphjQg">
+    <members xmi:id="_GiiDgsc-EeScbbCwdphjQg" column="_Giiqkcc-EeScbbCwdphjQg"/>
+  </SQLConstraints:Index>
+  <SQLTables:PersistentTable xmi:id="_GiiqkMc-EeScbbCwdphjQg" name="themes" schema="_GiiDgMc-EeScbbCwdphjQg" index="_GiiDgcc-EeScbbCwdphjQg">
+    <columns xmi:id="_Giiqkcc-EeScbbCwdphjQg" name="id" description="">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_Giiqksc-EeScbbCwdphjQg" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_Giiqk8c-EeScbbCwdphjQg" name="day" description="">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_GiiqlMc-EeScbbCwdphjQg" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_Giiqlcc-EeScbbCwdphjQg" name="description" description="">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_Giiqlsc-EeScbbCwdphjQg" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="64"/>
+    </columns>
+  </SQLTables:PersistentTable>
+</xmi:XMI>

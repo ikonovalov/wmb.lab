@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://luxoft.com/omsk" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:lxo="http://luxoft.com/omsk">
+    <xsd:complexType name="CreditRequestType">
+    	<xsd:sequence>
+    		<xsd:element name="client" type="lxo:ClientType"/>
+    		<xsd:element name="currency">
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:string">
+    					<xsd:enumeration value="RUB"/>
+    					<xsd:enumeration value="USD"/>
+    					<xsd:enumeration value="EUR"/>
+    				</xsd:restriction>
+    			</xsd:simpleType>
+    		</xsd:element>
+    		<xsd:element name="amount" type="xsd:float"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ClientType">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="xsd:string"/>
+    		<xsd:element name="birthdate" type="xsd:date"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element ibmSchExtn:docRoot="true" name="creditRequest" type="lxo:CreditRequestType"/>
+
+    <xsd:complexType name="CreditResponseType">
+    	<xsd:sequence>
+    		<xsd:element name="result" type="xsd:boolean"/>
+    		<xsd:element name="reason" type="xsd:string"/>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element ibmSchExtn:docRoot="true" name="creditResponse" type="lxo:CreditResponseType"/>
+</xsd:schema>

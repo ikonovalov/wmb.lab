@@ -20,7 +20,8 @@ CREATE COMPUTE MODULE SelectFunc_Compute
 				InputRoot.XMLNSC.lxft_ns:Training.lxft_ns:themes.lxft_ns:theme[] as req, Database.lxft_omsk.{'themes'} AS tab
 			WHERE 
 				CAST(req.lxft_ns:id AS INT) = tab.id;
-		
+				
+	
 		/*SET themesRef.lxft_ns:theme[] = 
 			SELECT 
 				t.id AS lxft_ns:id, 

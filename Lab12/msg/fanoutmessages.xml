@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lxo:creditRequest xmlns:lxo="http://luxoft.com/omsk" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://luxoft.com/omsk fanoutmessages.xsd ">
+  <lxo:client>
+    <lxo:name>Igor</lxo:name>
+    <lxo:birthdate>1984-04-28</lxo:birthdate>
+  </lxo:client>
+  <lxo:currency>RUB</lxo:currency>
+  <lxo:amount>1.5</lxo:amount>
+</lxo:creditRequest>

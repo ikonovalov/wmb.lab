@@ -1,0 +1,4 @@
+mqsisetdbparms DEFBRK -n jdbc::lxft@omsk -u root_rt -p root_rt
+
+mqsicreateconfigurableservice
+mqsichangeproperties DEFBRK -c JDBCProviders -o LXFTOMSK -n connectionUrlFormat,connectionUrlFormatAttr1,connectionUrlFormatAttr2,connectionUrlFormatAttr3,connectionUrlFormatAttr4,connectionUrlFormatAttr5,databaseName,databaseSchemaNames,databaseType,databaseVersion,description,environmentParms,jarsURL,jdbcProviderXASupport,maxConnectionPoolSize,portNumber,securityIdentity,serverName,type4DatasourceClassName,type4DriverClassName  -v "jdbc:mysql://[serverName]:[portNumber]/[databaseName]","","","","","","lxft_omsk","useProvidedSchemaNames","MariaDB","5.5","default_Description","default_none","/opt/postgres_jdbc/","false","10","3306","lxft@omsk","ubuntu540","com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource","com.mysql.jdbc.Driver"

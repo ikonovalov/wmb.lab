@@ -1,0 +1,10 @@
+
+
+CREATE COMPUTE MODULE ConnectDb_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		INSERT INTO Database.lxft_omsk.themes (id, day, description) VALUES (1,1, '');
+		RETURN TRUE;
+	END;
+END MODULE;

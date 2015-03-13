@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="MyService" targetNamespace="http://luxoft.com/omsk" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://luxoft.com/omsk" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="MyServiceSOAP" originalBindingStyle="document"/>
+        <generatedXSD location="MyService_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://luxoft.com/omsk" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="MyService_InlineSchema1.xsd"/>
+            </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="queryRequest">
+    <wsdl:part element="tns:query" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="queryResponse">
+    <wsdl:part element="tns:queryResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notifyRequest">
+  	<wsdl:part element="tns:in" name="notifyRequest"/>
+  </wsdl:message>
+  <wsdl:message name="notifyResponse">
+  	<wsdl:part element="tns:out" name="notifyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="simpleOperationRequest">
+  	<wsdl:part name="parameters" element="tns:simpleOperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="simpleOperationResponse">
+  	<wsdl:part name="parameters" element="tns:simpleOperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MyService">
+    <wsdl:operation name="query">
+      <wsdl:input message="tns:queryRequest"/>
+      <wsdl:output message="tns:queryResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="simpleOperation">
+    	<wsdl:input message="tns:simpleOperationRequest"></wsdl:input>
+    	<wsdl:output message="tns:simpleOperationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyServiceSOAP" type="tns:MyService">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="query">
+  		<soap:operation
+  			soapAction="http://www.example.org/MyService/query" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="simpleOperation">
+  		<soap:operation
+  			soapAction="http://luxoft.com/omsk/simpleOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyService">
+    <wsdl:port binding="tns:MyServiceSOAP" name="MyServiceSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

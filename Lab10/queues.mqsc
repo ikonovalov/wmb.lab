@@ -1,0 +1,19 @@
+DEFINE QLOCAL (LXFT.LAB10.Q1.BK) +
+       DESCR('Back out queue for LXFT.LAB10.Q1') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB10.Q1) +
+       DESCR('Input queue for LAB10') +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB10.Q1.BK') +
+       BOTHRESH(1) +
+       REPLACE;

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="TCS" targetNamespace="http://tincoff.ru/credits" xmlns:lxf="http://luxoft.com/omsk" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tcs="http://tincoff.ru/credits" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="TCSSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://luxoft.com/omsk">
+<xsd:include schemaLocation="fanoutmessages.xsd"/>
+    </xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getCreditRequest">
+		<wsdl:part element="lxf:creditRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="getCreditResponse">
+		<wsdl:part element="lxf:creditResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="TCS">
+		<wsdl:operation name="getCredit">
+			<wsdl:input message="tcs:getCreditRequest"/>
+			<wsdl:output message="tcs:getCreditResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TCSSOAP" type="tcs:TCS">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getCredit">
+			<soap:operation soapAction="http://www.example.org/TCS/NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="TCS">
+		<wsdl:port binding="tcs:TCSSOAP" name="TCSSOAP">
+			<soap:address location="http://localhost:7800/tcs/credit"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

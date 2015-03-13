@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="com.luxoft.omsk" version="8.0.4.0" xmlns:map="com.luxoft.omsk">
+    <input path="/fanoutmessages.xsd"/>
+    <output path="/fanoutmessages.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="LoopBackCreditService_Mapping">
+        <input namespace="http://luxoft.com/omsk" path="mb:msg(creditRequest,assembly,XMLNSC,Properties)"/>
+        <output namespace="http://luxoft.com/omsk" path="mb:msg(creditResponse,assembly,XMLNSC,Properties)"/>
+        <move>
+            <input path="Properties"/>
+            <output path="Properties"/>
+        </move>
+        <assign value="true">
+            <output path="creditResponse/result"/>
+        </assign>
+        <move>
+            <input path="creditRequest/client/name"/>
+            <output path="creditResponse/reason"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

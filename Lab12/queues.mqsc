@@ -1,0 +1,62 @@
+DEFINE QLOCAL (LXFT.LAB12.TEST1) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB12.TEST2) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+
+
+DEFINE QLOCAL (LXFT.LAB12.IN.BK) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB12.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB12.IN.BK') +
+       BOTHRESH(3) +
+       REPLACE;
+       
+       
+       
+       
+DEFINE QLOCAL (LXFT.LAB12.LOOP.BK) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.LAB12.LOOP) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.LAB12.LOOP.BK') +
+       BOTHRESH(3) +
+       REPLACE;
+       
+       
+DEFINE QLOCAL (LXFT.LAB12.FANIN) +
+       DEFPSIST(YES) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;

@@ -1,0 +1,13 @@
+BROKER SCHEMA com.luxoft.lab9
+
+CREATE COMPUTE MODULE UDPSample_Compute
+	
+	DECLARE MyExternal EXTERNAL CHARACTER 'extDefault';
+	
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+		DECLARE localVar CHARACTER MyExternal; --=> localVar:CHARACTER:Hello UDP
+		RETURN TRUE;
+	END;
+END MODULE;

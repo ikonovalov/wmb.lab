@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:com.ibm.wbit.comptest.common.models.value="http:///com/ibm/etools/mft/unittest/common/models/value.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq" xmlns:node="http:///com/ibm//etools/mft/unittest/common/model2/node">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1426074511607-877" eventTrace="/1" clientID="1426074511607-877">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/ForTests.msgflow" iD="1426074511608-881">
+        <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426078108060-251" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+          <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+        </monitors>
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="HTTP Input" urlSpecifier="/test"/>
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.TEST1" queue="LXFT.LAB12.TEST1"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/TCSWebService.msgflow" iD="1426074511608-882">
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="SOAP Input" urlSpecifier="/tcs/credit"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/LoopBackCreditService.msgflow" iD="1426074511608-883">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.LOOP" queue="LXFT.LAB12.LOOP"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanInCredit.msgflow" iD="1426074511608-884">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="MQ Response Q" queue="LXFT.LAB12.FANIN"/>
+      </testModules>
+      <testModules xsi:type="model2:TestMsgFlow" name="/Lab12/com/luxoft/omsk/FanOutCredit.msgflow" iD="1426074511608-885">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="LXFT.LAB12.IN" queue="LXFT.LAB12.IN"/>
+      </testModules>
+      <testModules xsi:type="model2:TestAppOrLib" name="Lab12" iD="1426074511608-886"/>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="Integration Bus v9.0" runtimeInstance="localhost^DEFBRK^default^0" runtimeMode="1"/>
+      <settings xsi:type="mq:MQSettings" purgeMQMessage="false"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1426074511608-880" msgId="" accountingToken="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </messageHeaders>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1426074511607-878" children="/2 /8 /14 /20 /26 /28 /30 /32 /38 /39 /45 /51"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076209391-1268" readOnly="true" clientID="1426074511607-877" timestamp="1426076209391" children="/3 /4 /7" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076221588-1272">
+    <request xsi:type="model2:TestMessage" iD="1426076215368-1270" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="asd"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header" includeRFH2="true">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076221588-1271" parentID="1426076209391-1268" timestamp="1426076221588" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Going to rebuild and deploy broker archive&#xA;[Info]  Cleaning Broker Archive...&#xA;[Info]  Rebuilding broker archive...&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Deploying broker archive to execution group...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076231587-1292" readOnly="true" clientID="1426074511607-877" parentID="1426076209391-1268" timestamp="1426076231587" invokeCommandId="1426076231587-1289" children="/5 /6"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076231592-1294" readOnly="true" clientID="1426074511607-877" parentID="1426076231587-1292" timestamp="1426076231592" invokeCommandId="1426076231587-1290" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076231589-1293" clientID="1426074511607-877" parentID="1426076231587-1292" timestamp="1426076231589">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076222051-1273" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076231592-1296" readOnly="true" clientID="1426074511607-877" parentID="1426076209391-1268" timestamp="1426076231592" invokeCommandId="1426076231587-1290"/>
+  <model2:InteractiveInputNodeInvocationEvent name="sdfs" iD="1426076269874-1298" readOnly="true" clientID="1426074511607-877" timestamp="1426076269874" children="/9 /10 /13" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076221588-1272">
+    <request xsi:type="model2:TestMessage" iD="1426076215368-1270" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="asd"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076313359-1301" parentID="1426076269874-1298" timestamp="1426076313359" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Going to rebuild and deploy broker archive&#xA;[Info]  Cleaning Broker Archive...&#xA;[Info]  Rebuilding broker archive...&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Deploying broker archive to execution group...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076324430-1322" readOnly="true" clientID="1426074511607-877" parentID="1426076269874-1298" timestamp="1426076324430" invokeCommandId="1426076324430-1318" children="/11 /12"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076324434-1325" readOnly="true" clientID="1426074511607-877" parentID="1426076324430-1322" timestamp="1426076324434" invokeCommandId="1426076324430-1319" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076324433-1324" clientID="1426074511607-877" parentID="1426076324430-1322" timestamp="1426076324433">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076313644-1302" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076324434-1327" readOnly="true" clientID="1426074511607-877" parentID="1426076269874-1298" timestamp="1426076324434" invokeCommandId="1426076324430-1319"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076461984-1337" readOnly="true" clientID="1426074511607-877" timestamp="1426076461984" children="/15 /16 /19" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076487507-1341">
+    <request xsi:type="model2:TestMessage" iD="1426076468429-1339" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="aaa"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076487506-1340" parentID="1426076461984-1337" timestamp="1426076487507" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076488578-1361" readOnly="true" clientID="1426074511607-877" parentID="1426076461984-1337" timestamp="1426076488578" invokeCommandId="1426076488577-1358" children="/17 /18"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076488582-1363" readOnly="true" clientID="1426074511607-877" parentID="1426076488578-1361" timestamp="1426076488582" invokeCommandId="1426076488577-1359" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076488580-1362" clientID="1426074511607-877" parentID="1426076488578-1361" timestamp="1426076488580">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076487526-1342" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076488582-1365" readOnly="true" clientID="1426074511607-877" parentID="1426076461984-1337" timestamp="1426076488582" invokeCommandId="1426076488577-1359"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076641662-1370" readOnly="true" clientID="1426074511607-877" timestamp="1426076641662" children="/21 /22 /25" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076487507-1341">
+    <request xsi:type="model2:TestMessage" iD="1426076648664-1372" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="44444"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076660094-1373" parentID="1426076641662-1370" timestamp="1426076660094" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076661177-1394" readOnly="true" clientID="1426074511607-877" parentID="1426076641662-1370" timestamp="1426076661177" invokeCommandId="1426076661177-1391" children="/23 /24"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076661181-1396" readOnly="true" clientID="1426074511607-877" parentID="1426076661177-1394" timestamp="1426076661181" invokeCommandId="1426076661177-1392" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076661180-1395" clientID="1426074511607-877" parentID="1426076661177-1394" timestamp="1426076661180">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076660119-1374" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076661182-1398" readOnly="true" clientID="1426074511607-877" parentID="1426076641662-1370" timestamp="1426076661182" invokeCommandId="1426076661177-1392"/>
+  <mq:InteractiveMQEnqueueEvent iD="1426076670013-1400" timestamp="1426076670013" children="/27" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1">
+    <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    <request xsi:type="model2:TestMessage" iD="1426076670013-1401" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="sss"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076694103-1402" readOnly="true" clientID="1426074511607-877" parentID="1426076670013-1400" timestamp="1426076694103" exceptionText="Cannot communicate with queue manager DEFQM.  An unexpected exception occurred while attempting to communicate with the queue manager.&#xA;&#xA;Check the name/status of the queue manager and try again." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2035'." host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <mq:InteractiveMQEnqueueEvent iD="1426076723730-1403" timestamp="1426076723730" children="/29" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1">
+    <properties name="SERVER_CHANNEL" stringValue="JVM.DEF.SVRCONN"/>
+    <request xsi:type="model2:TestMessage" iD="1426076670013-1401" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="sss"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076744120-1405" readOnly="true" clientID="1426074511607-877" parentID="1426076723730-1403" timestamp="1426076744120" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <mq:InteractiveMQEnqueueEvent iD="1426076839476-54" timestamp="1426076839476" children="/31" host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1">
+    <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    <request xsi:type="model2:TestMessage" iD="1426076670013-1401" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="sss"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+    </request>
+  </mq:InteractiveMQEnqueueEvent>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076849159-56" readOnly="true" clientID="1426074511607-877" parentID="1426076839476-54" timestamp="1426076849159" exceptionText="Cannot communicate with queue manager DEFQM.  An unexpected exception occurred while attempting to communicate with the queue manager.&#xA;&#xA;Check the name/status of the queue manager and try again." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2035'." host="localhost" port="1414" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426076854742-57" readOnly="true" clientID="1426074511607-877" timestamp="1426076854742" children="/33 /34 /37" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426076854848-62">
+    <request xsi:type="model2:TestMessage" iD="1426076648664-1372" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="44444"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426076854838-60" parentID="1426076854742-57" timestamp="1426076854838" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426076859051-83" readOnly="true" clientID="1426074511607-877" parentID="1426076854742-57" timestamp="1426076859051" invokeCommandId="1426076859051-79" children="/35 /36"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426076859061-85" readOnly="true" clientID="1426074511607-877" parentID="1426076859051-83" timestamp="1426076859061" invokeCommandId="1426076859051-80" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426076859058-84" clientID="1426074511607-877" parentID="1426076859051-83" timestamp="1426076859058">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426076854982-63" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426076859062-87" readOnly="true" clientID="1426074511607-877" parentID="1426076854742-57" timestamp="1426076859062" invokeCommandId="1426076859051-80"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426077155815-183" timestamp="1426077155815" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode">
+    <request xsi:type="model2:TestMessage" iD="1426076648664-1372" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="44444"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426077194893-186" readOnly="true" clientID="1426074511607-877" timestamp="1426077194893" children="/40 /41 /44" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426077206068-190">
+    <request xsi:type="model2:TestMessage" iD="1426077201692-188" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="sdfsdfsdf"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426077206068-189" parentID="1426077194893-186" timestamp="1426077206068" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426077210169-210" readOnly="true" clientID="1426074511607-877" parentID="1426077194893-186" timestamp="1426077210169" invokeCommandId="1426077210169-207" children="/42 /43"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426077210173-212" readOnly="true" clientID="1426074511607-877" parentID="1426077210169-210" timestamp="1426077210173" invokeCommandId="1426077210169-208" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426077210171-211" clientID="1426074511607-877" parentID="1426077210169-210" timestamp="1426077210171">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426077206091-191" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426077210173-214" readOnly="true" clientID="1426074511607-877" parentID="1426077194893-186" timestamp="1426077210173" invokeCommandId="1426077210169-208"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426077983533-216" readOnly="true" clientID="1426074511607-877" timestamp="1426077983533" children="/46 /47 /50" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426077206068-190">
+    <request xsi:type="model2:TestMessage" iD="1426077201692-188" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="sdfsdfsdf"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" messageType="1" msgId="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426077983638-219" parentID="1426077983533-216" timestamp="1426077983638" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426077984725-240" readOnly="true" clientID="1426074511607-877" parentID="1426077983533-216" timestamp="1426077984725" invokeCommandId="1426077984725-236" children="/48 /49"/>
+  <mq:MQQueueMonitorExceptionEvent name="Error sending message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426077984730-243" readOnly="true" clientID="1426074511607-877" parentID="1426077984725-240" timestamp="1426077984730" invokeCommandId="1426077984725-237" module="/Lab12/com/luxoft/omsk/ForTests.msgflow" exceptionText="Cannot put message onto queue LXFT.LAB12.TEST1 using queue manager DEFQM." trace="com.ibm.mq.MQException: MQJE001: Completion Code '2', Reason '2027'." host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1"/>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426077984728-242" clientID="1426074511607-877" parentID="1426077984725-240" timestamp="1426077984728">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426077983661-220" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426077984730-245" readOnly="true" clientID="1426074511607-877" parentID="1426077983533-216" timestamp="1426077984730" invokeCommandId="1426077984725-237"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1426078107940-247" readOnly="true" clientID="1426074511607-877" timestamp="1426078107940" children="/52 /53 /60" msgFlow="/Lab12/com/luxoft/omsk/ForTests.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="LXFT.LAB12.TEST1" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1426077206068-190">
+    <request xsi:type="model2:TestMessage" iD="1426077201692-188" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="sdfsdfsdf"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426074511608-880" msgId="" accountingToken="" groupId="" headerName="Default Header">
+        <rfh2 includeUsr="true">
+          <jms/>
+          <mcd/>
+          <usr content="a=1"/>
+        </rfh2>
+      </headerBeenUsed>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1426078108035-250" parentID="1426078107940-247" timestamp="1426078108035" log="[Info]  Begin deploying message flows&#xA;[Info]  Deploying the message flow application&#xA;[Info]  Initializing test message monitors...&#xA;[Info]  Test client is ready to send and monitor messages.&#xA;[Info]  Starting message flows&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1426078109113-271" readOnly="true" clientID="1426074511607-877" parentID="1426078107940-247" timestamp="1426078109113" invokeCommandId="1426078109113-267" children="/54 /55 /56 /57 /58 /59"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;LXFT.LAB12.TEST1&quot;" iD="1426078109122-274" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST1" readOnly="true" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078109122" invokeCommandId="1426078109113-268">
+    <message xsi:type="model2:TestMessage" iD="1426077201692-188" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="sdfsdfsdf"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426078109122-277" encoding="273" format="        " putDateTime="Wed Mar 11 19:48:29 NOVT 2015" replyToQueueManagerName="                                                " replyToQueueName="                                                " msgId="AMQ+DEFQM+++++++%EF%BF%BD4%00U%03J%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQInformationEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1426078109266-279" readOnly="true" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078109266" flow="/Lab12/com/luxoft/omsk/ForTests.msgflow" sourceNode="LXFT.LAB12.TEST1" targetNode="Trace" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1426078109266-280">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1426078109268-281">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1426078109268-282" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1426078109286-283" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1426078109286-284" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109286-285" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109286-286" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109286-287" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109286-288" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1426078109286-289" value="2015-03-11 12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1426078109286-290" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109286-291" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1426078109286-292" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1426078109287-293" value="MQ"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1426078109287-294" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1426078109287-295" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1426078109287-296" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1426078109287-297" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1426078109287-298" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1426078109287-299" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1426078109287-300" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1426078109287-301" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1426078109287-302" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1426078109287-303" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MQMD" iD="1426078109287-304">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SourceQueue" iD="1426078109287-305" value="LXFT.LAB12.TEST1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109287-306" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109287-307" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109287-308" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Format" iD="1426078109287-309" value="        "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Version" iD="1426078109287-310" value="2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Report" iD="1426078109287-311" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgType" iD="1426078109287-312" value="8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Expiry" iD="1426078109287-313" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Feedback" iD="1426078109287-314" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109287-315" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109287-316" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgId" iD="1426078109287-317" value="414d5120444546514d2020202020202090340055034a0020"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CorrelId" iD="1426078109287-318" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BackoutCount" iD="1426078109287-319" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQ" iD="1426078109287-320" value="                                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQMgr" iD="1426078109287-321" value="DEFQM                                           "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UserIdentifier" iD="1426078109287-322" value="            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="AccountingToken" iD="1426078109287-323" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplIdentityData" iD="1426078109287-324" value="                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplType" iD="1426078109287-325" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplName" iD="1426078109287-326" value="                            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutDate" iD="1426078109287-327" value="2015-03-11"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutTime" iD="1426078109287-328" value="12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplOriginData" iD="1426078109287-329" value="    "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="GroupId" iD="1426078109287-330" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgSeqNumber" iD="1426078109287-331" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Offset" iD="1426078109287-332" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgFlags" iD="1426078109287-333" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="OriginalLength" iD="1426078109287-334" value="-1"/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109287-335">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UnknownParserName" iD="1426078109287-336" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109287-337" value="736466736466736466"/>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1426078109299-338" readOnly="true" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078109299" flow="/Lab12/com/luxoft/omsk/ForTests.msgflow" sourceNode="Trace" targetNode="MQ Output" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1426078109299-339">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1426078109299-340">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1426078109299-341" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1426078109299-342" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1426078109299-343" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109299-344" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109299-345" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109299-346" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109299-347" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1426078109299-348" value="2015-03-11 12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1426078109299-349" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109299-350" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1426078109299-351" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1426078109299-352" value="MQ"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1426078109299-353" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1426078109299-354" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1426078109299-355" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1426078109299-356" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1426078109299-357" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1426078109299-358" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1426078109299-359" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1426078109299-360" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1426078109299-361" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1426078109299-362" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MQMD" iD="1426078109299-363">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SourceQueue" iD="1426078109299-364" value="LXFT.LAB12.TEST1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109299-365" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109299-366" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109299-367" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Format" iD="1426078109299-368" value="        "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Version" iD="1426078109299-369" value="2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Report" iD="1426078109299-370" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgType" iD="1426078109299-371" value="8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Expiry" iD="1426078109299-372" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Feedback" iD="1426078109299-373" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109299-374" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109299-375" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgId" iD="1426078109299-376" value="414d5120444546514d2020202020202090340055034a0020"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CorrelId" iD="1426078109299-377" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BackoutCount" iD="1426078109299-378" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQ" iD="1426078109299-379" value="                                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQMgr" iD="1426078109299-380" value="DEFQM                                           "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UserIdentifier" iD="1426078109299-381" value="            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="AccountingToken" iD="1426078109299-382" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplIdentityData" iD="1426078109299-383" value="                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplType" iD="1426078109299-384" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplName" iD="1426078109299-385" value="                            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutDate" iD="1426078109299-386" value="2015-03-11"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutTime" iD="1426078109299-387" value="12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplOriginData" iD="1426078109299-388" value="    "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="GroupId" iD="1426078109299-389" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgSeqNumber" iD="1426078109299-390" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Offset" iD="1426078109299-391" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgFlags" iD="1426078109299-392" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="OriginalLength" iD="1426078109299-393" value="-1"/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109299-394">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UnknownParserName" iD="1426078109299-395" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109299-396" value="736466736466736466"/>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1426078109365-397" readOnly="true" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078109365" flow="/Lab12/com/luxoft/omsk/ForTests.msgflow" sourceNode="MQ Output" targetNode="Filter" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1426078109365-398">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1426078109365-399">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1426078109365-400" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1426078109365-401" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1426078109365-402" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109365-403" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109365-404" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109365-405" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109365-406" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1426078109365-407" value="2015-03-11 12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1426078109365-408" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109365-409" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1426078109365-410" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1426078109365-411" value="MQ"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1426078109365-412" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1426078109365-413" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1426078109365-414" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1426078109365-415" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1426078109365-416" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1426078109365-417" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1426078109365-418" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1426078109365-419" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1426078109365-420" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1426078109365-421" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MQMD" iD="1426078109365-422">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SourceQueue" iD="1426078109365-423" value="LXFT.LAB12.TEST1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1426078109365-424" value="true"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1426078109365-425" value="273"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1426078109365-426" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Format" iD="1426078109365-427" value="        "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Version" iD="1426078109365-428" value="2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Report" iD="1426078109365-429" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgType" iD="1426078109365-430" value="8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Expiry" iD="1426078109365-431" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Feedback" iD="1426078109365-432" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1426078109365-433" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1426078109365-434" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgId" iD="1426078109365-435" value="414d5120444546514d2020202020202090340055034a0020"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CorrelId" iD="1426078109366-436" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BackoutCount" iD="1426078109366-437" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQ" iD="1426078109366-438" value="                                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyToQMgr" iD="1426078109366-439" value="DEFQM                                           "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UserIdentifier" iD="1426078109366-440" value="            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="AccountingToken" iD="1426078109366-441" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplIdentityData" iD="1426078109366-442" value="                                "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplType" iD="1426078109366-443" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutApplName" iD="1426078109366-444" value="                            "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutDate" iD="1426078109366-445" value="2015-03-11"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="PutTime" iD="1426078109366-446" value="12:48:29.110"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplOriginData" iD="1426078109366-447" value="    "/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="GroupId" iD="1426078109366-448" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgSeqNumber" iD="1426078109366-449" value="1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Offset" iD="1426078109366-450" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MsgFlags" iD="1426078109366-451" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="OriginalLength" iD="1426078109366-452" value="-1"/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109366-453">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UnknownParserName" iD="1426078109366-454" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="BLOB" iD="1426078109366-455" value="736466736466736466"/>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <mq:MQQueueMonitorEvent name="MQ Queue Monitor &quot;LXFT.LAB12.TEST2&quot;" iD="1426078111115-456" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" readOnly="true" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078111115" invokeCommandId="1426078109113-268">
+    <message xsi:type="model2:TestMessage" iD="1426078111115-457">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="sdfsdfsdf"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1426078111116-458" applicationIdData="                                " applicationOriginData="    " characterSet="1208" encoding="273" format="        " persistence="1" priority="0" putApplicationName="                            " putDateTime="Wed Mar 11 19:48:29 NOVT 2015" replyToQueueManagerName="DEFQM                                           " replyToQueueName="                                                " userId="            " msgId="AMQ+DEFQM+++++++%EF%BF%BD4%00U%03J%00+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00">
+        <rfh2>
+          <jms/>
+          <mcd/>
+          <usr/>
+        </rfh2>
+      </headerBeenUsed>
+    </message>
+  </mq:MQQueueMonitorEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1426078109116-273" clientID="1426074511607-877" parentID="1426078109113-271" timestamp="1426078109116">
+    <monitors xsi:type="mq:MQMonitor" name="LXFT.LAB12.TEST2" iD="1426078108060-251" host="localhost" port="0" queueManager="DEFQM" queue="LXFT.LAB12.TEST2" status="OK">
+      <properties name="SERVER_CHANNEL" stringValue="SYSTEM.BKR.CONFIG"/>
+    </monitors>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1426078111116-459" readOnly="true" clientID="1426074511607-877" parentID="1426078107940-247" timestamp="1426078111116" invokeCommandId="1426078109113-268"/>
+</xmi:XMI>

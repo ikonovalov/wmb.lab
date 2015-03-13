@@ -1,0 +1,17 @@
+DEFINE QLOCAL (LXFT.SHOWDB.IN.BK) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+       
+DEFINE QLOCAL (LXFT.SHOWDB.IN) +
+       DEFPSIST(YES) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       BOQNAME('LXFT.SHOWDB.IN.BK') +
+       BOTHRESH(1) +
+       REPLACE;

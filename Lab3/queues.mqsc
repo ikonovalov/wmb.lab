@@ -88,3 +88,4 @@ DEFINE SUB(LXFT.LAB3.SUBSCR2) +
    	   EXPIRY(UNLIMITED) +                       
    	   SUBLEVEL(1) +
 	   REPLACE;
+	   
