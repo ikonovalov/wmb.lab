@@ -88,4 +88,20 @@ DEFINE SUB(LXFT.LAB3.SUBSCR2) +
    	   EXPIRY(UNLIMITED) +                       
    	   SUBLEVEL(1) +
 	   REPLACE;
+
+
+DEFINE QLOCAL (LXFT.LAB3.SUB3.Q) +
+       DEFPSIST(NO) +
+       PUT (ENABLED) +
+       GET (ENABLED) +
+       MAXDEPTH (500) +
+       USAGE (NORMAL) +
+       REPLACE;
+
+DEFINE SUB(LXFT.LAB3.SUBSCR3.SC) +
+           TOPICSTR('SC/LXFT/LAB3') +
+           DEST(LXFT.LAB3.SUB3.Q) +
+           EXPIRY(UNLIMITED) +
+           SUBLEVEL(1) +
+           REPLACE;
 	   
